@@ -3,26 +3,24 @@ const generateMarkdown = (fileName, data) => {
     return `
   # ${data}
 
-  # Description
+  # Description (purpose)
     ${fileName}
   
   # Table of Contents (Optional)
 
   # Installation
 
+  # Built With
+
+  # Website
+
   # Usage
 
-  # Credits
+  # Contributions
+  Made with Pride by (author)
+  Other contributions below
 
   # License
-
-  # Badges (Optional)
-
-  # Features
-
-  # Contributing
-
-  # Tests (Extra)
 
 `;
 };

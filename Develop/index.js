@@ -1,11 +1,29 @@
-const fs = require('fs');
+const inquirer = require("inquirer");
 
-const generatePage = require('./src/generateMarkdown.js');
+// const fs = require('fs');
 
-const profileDataArgs = process.argv.slice(2, process.argv.length);
-const [fileName, data] = profileDataArgs;
+// const generatePage = require('./src/generateMarkdown.js');
 
-// // array of questions for user
+// const pageReadMe = generatePage(fileName, data);
+
+// fs.writeFile('./utils/README.md', pageReadMe, err => {
+//     if (err) {
+//       return console.log(err);
+//     }
+//     console.log('README file created!')
+//   });
+
+inquirer
+    .prompt([
+        {
+            type: 'input',
+            name: 'title',
+            message: 'What is the title of your project?'
+        }
+    ])
+    .then(answers => console.log(answers));
+
+// array of questions for user
 // const questions = [
 
 // ];
@@ -21,11 +39,3 @@ const [fileName, data] = profileDataArgs;
 
 // // function call to initialize program
 // init();
-
-
-fs.writeFile('./utils/README.md', generatePage(fileName, data), err => {
-    if (err) {
-      return console.log(err);
-    }
-    console.log('README file created!')
-  });

@@ -1,4 +1,7 @@
 const fs = require('fs');
+
+const generatePage = require('./src/generateMarkdown.js');
+
 const profileDataArgs = process.argv.slice(2, process.argv.length);
 const [fileName, data] = profileDataArgs;
 
@@ -8,33 +11,8 @@ const [fileName, data] = profileDataArgs;
 // ];
 
 // // function to write README file
-const writeToFile = (fileName, data) => {
-    return `
-  # ${data}
-
-  # Description
-    ${fileName}
-  
-  # Table of Contents (Optional)
-
-  # Installation
-
-  # Usage
-
-  # Credits
-
-  # License
-
-  # Badges (Optional)
-
-  # Features
-
-  # Contributing
-
-  # Tests (Extra)
-
-`;
-};
+// const writeToFile = (fileName, data) => {
+// };
 
 // // function to initialize program
 // function init() {
@@ -45,7 +23,7 @@ const writeToFile = (fileName, data) => {
 // init();
 
 
-fs.writeFile('./utils/README.md', writeToFile(fileName, data), err => {
+fs.writeFile('./utils/README.md', generatePage(fileName, data), err => {
     if (err) {
       return console.log(err);
     }

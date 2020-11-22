@@ -1,9 +1,10 @@
 // function to generate markdown for README
-const generateMarkdown = (data) => {
-  return `
-  # ${data.title}
+const generateMarkdown = (fileName, data) => {
+    return `
+  # ${data}
 
   # Description
+    ${fileName}
   
   # Table of Contents (Optional)
 
@@ -24,6 +25,6 @@ const generateMarkdown = (data) => {
   # Tests (Extra)
 
 `;
-}
+};
 
 module.exports = generateMarkdown;

@@ -1,24 +1,15 @@
 const inquirer = require("inquirer");
 
-// const fs = require('fs');
+const fs = require('fs');
 
-// const generatePage = require('./src/generateMarkdown.js');
+const generateMarkdown = require('./src/generateMarkdown.js');
 
-// const pageReadMe = generatePage(fileName, data);
-
-// fs.writeFile('./utils/README.md', pageReadMe, err => {
-//     if (err) {
-//       return console.log(err);
-//     }
-//     console.log('README file created!')
-//   });
 
 // array of questions for user
-const questions = () => {
-    return inquirer.prompt([
+const questions = [
         {
             type: 'input',
-            name: 'description',
+            name: 'title',
             message: 'What is the title of your project?',
             validate: titleInput => {
                 if (titleInput) {
@@ -126,20 +117,29 @@ const questions = () => {
                 }
             }
         }
+    ];
         // May add Badges, Features, Contributing, Tests later
         // Maybe add a prompt to create another Readme?
-    ]);
-};
-    questions().then(answers => console.log(answers));
 
 // // function to write README file
-// const writeToFile = (fileName, data) => {
-// };
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, err => {
+        if (err) {
+            return console.log(err);
+        }
+        console.log("README file has been created!")
+    })
+};
 
-// // function to initialize program
-// function init() {
+// function to initialize program
+function init() {
+    inquirer.prompt(questions)
+    .then (data => {
+        const generateData = generateMarkdown(data);
+        writeToFile('./README.md', generateData);
+    });
 
-// }
+};
 
-// // function call to initialize program
-// init();
+// function call to initialize program
+init();

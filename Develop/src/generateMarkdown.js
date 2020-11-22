@@ -1,26 +1,32 @@
 // function to generate markdown for README
-const generateMarkdown = (fileName, data) => {
+const generateMarkdown = (data) => {
     return `
-  # ${data}
+  # ${data.title}
 
   # Description (purpose)
-    ${fileName}
+    ${data.description}
   
   # Table of Contents (Optional)
 
   # Installation
+  ${data.installation}
 
   # Built With
+  ${data.builtWith}
 
   # Website
+  ${data.link}
 
   # Usage
+  ${data.usage}
 
   # Contributions
-  Made with Pride by (author)
-  Other contributions below
+  Made with Pride by ${data.name}
+  Other contributions:
+  ${data.credits}
 
   # License
+  ${data.license}
 
 `;
 };

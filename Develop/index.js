@@ -1,5 +1,4 @@
 const inquirer = require("inquirer");
-const { fetchAsyncQuestionPropertyQuestionProperty } = require("inquirer/lib/utils/utils");
 
 // const fs = require('fs');
 

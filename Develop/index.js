@@ -19,18 +19,42 @@ const questions = () => {
     return inquirer.prompt([
         {
             type: 'input',
-            name: 'title',
-            message: 'What is the title of your project?'
+            name: 'description',
+            message: 'What is the title of your project?',
+            validate: titleInput => {
+                if (titleInput) {
+                    return true;
+                } else {
+                    console.log('Please enter a title!');
+                    return false; 
+                }
+            }
         },
         {
             type: 'input',
             name: 'description',
-            message: 'Please describe your project:'
+            message: 'Please describe your project:',
+            validate: descriptionInput => {
+                if (descriptionInput) {
+                    return true;
+                } else {
+                    console.log('Please enter a description!');
+                    return false; 
+                }
+            }
         },
         {
             type: 'input',
             name: 'installation',
-            message: 'How does someone install this project?'
+            message: 'How does someone install this project?',
+            validate: installInput => {
+                if (installInput) {
+                    return true;
+                } else {
+                    console.log('Please enter a description of how someone can install this project!');
+                    return false; 
+                }
+            }
         },
         {
             type: 'checkbox',
@@ -41,27 +65,67 @@ const questions = () => {
         {
             type: 'input',
             name: 'link',
-            message: 'Enter the GitHub link to your project. (Required)'
+            message: 'Enter the GitHub link to your project. (Required)',
+            validate: linkInput => {
+                if (linkInput) {
+                    return true;
+                } else {
+                    console.log('Please enter a link!');
+                    return false; 
+                }
+            }
         },
         {
             type: 'input',
             name: 'useage',
-            message: 'How will this project be used? (useage)'
+            message: 'How will this project be used? (useage)',
+            validate: useageInput => {
+                if (useageInput) {
+                    return true;
+                } else {
+                    console.log('Please describe how this project can be used!');
+                    return false; 
+                }
+            }
         },
         {
             type: 'input',
             name: 'name',
-            message: 'What is the authors name? (Enter other contributors after)'
+            message: 'What is the authors name? (Enter other contributors after)',
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log('Please enter the authors name!');
+                    return false; 
+                }
+            }
         },
         {
             type: 'input',
             name: 'credits',
-            message: 'List the collaborators on the projects (with links):'
+            message: 'List the collaborators on the projects: (with GitHub links)',
+            validate: creditInput => {
+                if (creditInput) {
+                    return true;
+                } else {
+                    console.log('Please enter at least one collaborator or third-party asset!');
+                    return false; 
+                }
+            }
         },
         {
             type: 'input',
             name: 'license',
-            message: 'What is the license on this project?'
+            message: 'What is the license on this project?',
+            validate: licenseInput => {
+                if (licenseInput) {
+                    return true;
+                } else {
+                    console.log('Please enter a license!');
+                    return false; 
+                }
+            }
         }
         // May add Badges, Features, Contributing, Tests later
         // Maybe add a prompt to create another Readme?

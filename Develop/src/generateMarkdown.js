@@ -1,47 +1,47 @@
 // function to generate markdown for README
 const generateMarkdown = (data) => {
     return `
-  # ${data.title}
-  ![badge](https://img.shields.io/badge/License-${data.license}-blue.svg)
+# ${data.title}
+![badge](https://img.shields.io/badge/License-${data.license}-blue.svg)
 
-  # Description
-  ${data.description}
+# Description
+${data.description}
   
-  # Table of Contents:
-    * [Description](#description)
-    * [Installation](#installation)
-    * [Built With](#built-with)
-    * [Repository](#repository)
-    * [Usage](#usage)
-    * [Contributions](#contributions)
-    * [License](#license)
+# Table of Contents:
+* [Description](#description)
+* [Installation](#installation)
+* [Built With](#built-with)
+* [Repository](#repository)
+* [Usage](#usage)
+* [Contributions](#contributions)
+* [License](#license)
 
-  # Installation
-  ${data.installation}
+# Installation
+${data.installation}
 
-  # Built With
-  ${data.builtWith}
+# Built With
+${data.builtWith}
 
-  # Repository
-  [Repository Link](${data.link})
+# Repository
+[Repository Link](${data.link})
 
-  # Useage
-  ${data.useage}
+# Useage
+${data.useage}
 
-  # Contributions
-  Made with Pride by ${data.name}
-  Other contributions:
-  ${data.credits}
+# Contributions
+Made with Pride by ${data.name}
+Other contributions:
+${data.credits}
 
-  # License
-  This application is covered by the ${data.license} license. 
+# License
+This application is covered by the ${data.license} license. 
 
-  # Tests
-  ${data.tests}
+# Tests
+${data.tests}
 
-  # Questions
-  If you have any questions about this project, the author can be contacted on their GitHub page: [Github User Link](https://github.com/${data.github})
-  Or via email: ${data.email}
+# Questions
+If you have any questions about this project, the author can be contacted on their GitHub page: [Github User Link](https://github.com/${data.github})
+Or via email: ${data.email}
   
 `;
 };

@@ -13,7 +13,7 @@
   * [License](#license)
 
   # Installation
-  First you will clone the respository to your own computer. Then make sure you have node.js, npm and inquirer installed. Run the application in the terminal from within the project main file by typing "node index" and hitting enter. Then follow the prompts to answer the questions and fill out the readme. After completing the prompts the user will find their newly created readme.md file in the dist folder.
+  First you will clone the respository to your own computer. Then make sure you have node.js, npm and inquirer installed. Run the application in the terminal from within the project "Develop" folder, make sure you have entered said folder, by typing "node index" and hitting enter. Then follow the prompts to answer the questions and fill out the readme. After completing the prompts the user will find their newly created readme.md file in the dist folder.
 
   # Built With
   Node, JavaScript, ES6, NPM, Inquirer

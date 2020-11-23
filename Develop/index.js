@@ -4,7 +4,6 @@ const fs = require('fs');
 
 const generateMarkdown = require('./src/generateMarkdown.js');
 
-
 // array of questions for user
 const questions = [
         {
@@ -55,7 +54,7 @@ const questions = [
         {
             type: 'input',
             name: 'link',
-            message: 'Enter the GitHub link to your project. (Required)',
+            message: 'Enter the link to the Github Repository for this project (Required):',
             validate: linkInput => {
                 if (linkInput) {
                     return true;
@@ -81,13 +80,26 @@ const questions = [
         {
             type: 'input',
             name: 'name',
-            message: 'What is the authors name? (Enter other contributors after)',
+            message: 'What is the authors name? (Enter other contributors later)',
             validate: nameInput => {
                 if (nameInput) {
                     return true;
                 } else {
                     console.log('Please enter the authors name!');
                     return false; 
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'github',
+            message: "What is the authors github username?",
+            validate: githubInput => {
+                if (githubInput) {
+                    return true;
+                } else {
+                    console.log('Please enter the authors github username!')
+                    return false;
                 }
             }
         },
@@ -105,23 +117,32 @@ const questions = [
             }
         },
         {
-            type: 'input',
+            type: 'list',
             name: 'license',
             message: 'What is the license on this project?',
-            validate: licenseInput => {
-                if (licenseInput) {
+            choices: ['Apache', 'Boost', 'BSDv3', 'BSDv2', 'CCO', 'EPLv1', 'Mozilla', 'GNUv3', 'MIT', 'Perl', 'Unlicensed']
+        },
+        {
+            type: 'input',
+            name: 'tests',
+            message: 'Write out some tests for this application (optional):'
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'What is the authors email?',
+            validate: creditInput => {
+                if (creditInput) {
                     return true;
                 } else {
-                    console.log('Please enter a license!');
+                    console.log('Please enter at least one mode of contact!');
                     return false; 
                 }
             }
         }
     ];
-        // May add Badges, Features, Contributing, Tests later
-        // Maybe add a prompt to create another Readme?
 
-// // function to write README file
+// function to write README file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, err => {
         if (err) {
@@ -136,7 +157,7 @@ function init() {
     inquirer.prompt(questions)
     .then (data => {
         const generateData = generateMarkdown(data);
-        writeToFile('./README.md', generateData);
+        writeToFile('./dist/README.md', generateData);
     });
 
 };

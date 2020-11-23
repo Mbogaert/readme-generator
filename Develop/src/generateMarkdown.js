@@ -2,11 +2,19 @@
 const generateMarkdown = (data) => {
     return `
   # ${data.title}
+  ![badge](https://img.shields.io/badge/License-${data.license}-blue.svg)
 
-  # Description (purpose)
-    ${data.description}
+  # Description
+  ${data.description}
   
-  # Table of Contents (Optional)
+  # Table of Contents:
+    * [Description](#description)
+    * [Installation](#installation)
+    * [Built With](#built-with)
+    * [Repository](#repository)
+    * [Usage](#usage)
+    * [Contributions](#contributions)
+    * [License](#license)
 
   # Installation
   ${data.installation}
@@ -14,11 +22,11 @@ const generateMarkdown = (data) => {
   # Built With
   ${data.builtWith}
 
-  # Website
-  ${data.link}
+  # Repository
+  [Repository Link](${data.link})
 
-  # Usage
-  ${data.usage}
+  # Useage
+  ${data.useage}
 
   # Contributions
   Made with Pride by ${data.name}
@@ -26,8 +34,15 @@ const generateMarkdown = (data) => {
   ${data.credits}
 
   # License
-  ${data.license}
+  This application is covered by the ${data.license} license. 
 
+  # Tests
+  ${data.tests}
+
+  # Questions
+  If you have any questions about this project, the author can be contacted on their GitHub page: [Github User Link](https://github.com/${data.github})
+  Or via email: ${data.email}
+  
 `;
 };
 
